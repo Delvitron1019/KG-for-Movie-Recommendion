@@ -70,11 +70,11 @@ if __name__ == '__main__':
         if i[0] not in review_users:
             s_u = pd.Series([i[0], ''])
             s_u.index = ['user_id','review_identifiers']
-            review_user2entity = review_user2entity.append(s_u,ignore_index=True)
+            review_user2entity = pd.concat([review_user2entity, s_u], ignore_index=True)
         if i[1] not in review_items:
             s_i = pd.Series([i[1], ''])
             s_i.index = ['item_id','review_identifiers']
-            review_item2entity = review_item2entity.append(s_i,ignore_index=True)
+            review_item2entity = pd.concat([review_item2entity,s_i], ignore_index=True)
 
     item2entity_id.to_csv(os.path.join(TPS_DIR, 'item_index2entity_id.txt'), index=False, header=None)
     user2entity_id.to_csv(os.path.join(TPS_DIR, 'user_index2entity_id.txt'), index=False, header=None)
