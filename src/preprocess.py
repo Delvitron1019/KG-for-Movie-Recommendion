@@ -40,9 +40,13 @@ def convert_review_to_entity_id_file():
         item_list.append(item_id)
         item_entity_list.append(entity_id2index['i'+item_id])
     items_num = i
+    print(item_index_old2new['2737'])
     print("the number of item is: ", items_num)
     for item_line in open(file_item, encoding='utf-8').readlines():
-        item_index = item_line.strip().split(',')[0]
+        if item_line.strip().split(',')[0]=='':
+            continue
+        item_index = str(int(float(item_line.strip().split(',')[0])))
+        print(item_index)
         item_satori_id = item_line.strip().split(',', 1)[1]
         if item_satori_id != '':
             item_satori_id = item_satori_id.strip('\"').split(',')

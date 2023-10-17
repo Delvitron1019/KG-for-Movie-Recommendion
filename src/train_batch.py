@@ -56,6 +56,8 @@ def train(args, data, show_loss, show_topk):
             rs_start, rs_start+args.batch_size)
             rs_start += args.batch_size
             # print("start is: ", start)
+            print(user_indices)
+            print("\nuse\n",user_start_index)
             rs_train_step(user_indices, item_indices, labels, user_head_indices, item_head_indices)
             
         # KGE training
