@@ -44,7 +44,6 @@ def convert_review_to_entity_id_file():
         if item_line.strip().split(',')[0]=='':
             continue
         item_index = str(int(float(item_line.strip().split(',')[0])))
-        print(item_index)
         item_satori_id = item_line.strip().split(',', 1)[1]
         if item_satori_id != '':
             item_satori_id = item_satori_id.strip('\"').split(',')
